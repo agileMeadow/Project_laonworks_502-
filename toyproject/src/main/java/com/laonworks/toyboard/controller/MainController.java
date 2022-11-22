@@ -35,7 +35,7 @@ public class MainController {
 		return "member_pw_findform";
 	}
 	
-	/*[비번 찾기 메일 보내기]*/
+	/*[비번 찾기 메일 보내기] */
 	@RequestMapping("member_pw_find_ok")
 	public String member_pw_find_ok(@ModelAttribute Member mem,
 									Member mmember,
