@@ -40,7 +40,7 @@
 	</div>
 	<div>
 		<input type="submit" value="로그인" >
-		<input type="button" value="회원가입">
+		<input type="button" value="회원가입" >
 		<input type="button" value="비밀번호 찾기" name="passwd_btn" onclick="passwd_find()" />
 	</div>
 </form>
