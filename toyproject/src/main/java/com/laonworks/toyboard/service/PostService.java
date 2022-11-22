@@ -12,7 +12,7 @@ public interface PostService {
 	public PostBean callOnePost(int post_num);
 	
 	// 글 작성
-	public void insertPost(String post_name, String member_name, String post_content);
+	public void insertPost(String post_name, String member_email, String member_name, String post_content);
 	
 	// 글 수정
 	public void updatePost(String post_name, String post_content);

@@ -24,8 +24,8 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public void insertPost(String post_name, String member_name, String post_content) {
-		pm.insertPost(post_name, member_name, post_content);
+	public void insertPost(String post_name, String member_email, String member_name, String post_content) {
+		pm.insertPost(post_name, member_email, member_name, post_content);
 	}
 
 	@Override

@@ -20,8 +20,8 @@
 
 	<!-- 글 작성 -->
 	<insert id="insertPost">
-		insert into post(post_name, member_name, post_content, post_date) 
-			values(#{post_name}, #{member_name}, #{post_content}, now())
+		insert into post(post_name, member_email, member_name, post_content, post_date) 
+			values(#{post_name}, #{member_email}, #{member_name}, #{post_content}, now())
 	</insert>
 	
 	<!-- 글 수정 -->
