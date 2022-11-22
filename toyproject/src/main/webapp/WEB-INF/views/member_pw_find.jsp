@@ -9,8 +9,9 @@
 <title>비밀번호 찾기 폼</title>
 
 <%--[외부 파일] --%>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/member_deco_pwd_find.css">	
+<%-- <link rel="stylesheet"
+	href="<%=request.getContextPath() %>/member_deco_pwd_find.css">	 --%>
+
 <script>
 	function check() {
 		if($.trim($("#email").val())==""){
@@ -70,7 +71,7 @@
 				</div>      
 		    </table>
 	    <div id="pwd_close2">
-		    <input type="button" value="닫기                                                                           →" class="passwd_close_btn2"
+		    <input type="button" value="닫기" class="passwd_close_btn2"
 		    			onclick="self.close();" />
 	    </div>
 	</div> 	    

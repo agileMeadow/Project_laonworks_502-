@@ -1,10 +1,11 @@
 package com.laonworks.toyboard.service;
 
-import java.lang.reflect.Member;
+import com.laonworks.toyboard.model.Member;
 
 public interface MainService {
-
-	Member findpw(Member mem)throws Exception;
+	
+	/*[비번 찾기 메일 보내기]*/
+	public Member findpw(Member mem)throws Exception;
 
 }
 

@@ -1,7 +1,6 @@
 package com.laonworks.toyboard.controller;
 
 import java.io.PrintWriter;
-import java.lang.reflect.Member;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.laonworks.toyboard.model.Member;
 import com.laonworks.toyboard.service.MainService;
 import com.laonworks.toyboard.service.MainServiceImpl;
 
@@ -28,7 +28,7 @@ public class MainController {
 	
 
 	/*[비밀번호 찾기 폼]*/
-	@RequestMapping("member_pw_find.do")
+	@RequestMapping("member_pw_find")
 	public String member_pw_find() {
 		System.out.println("컨트롤러 들어옴(member_pw_find)");
 		
@@ -36,8 +36,9 @@ public class MainController {
 	}
 	
 	/*[비번 찾기 메일 보내기]*/
-	@RequestMapping("member_pw_find_ok.do")
+	@RequestMapping("member_pw_find_ok")
 	public String member_pw_find_ok(@ModelAttribute Member mem,
+									Member mmember,
 									HttpServletResponse response,
 									Model model)throws Exception {
 		System.out.println("컨트롤러 들어옴(member_pw_find_ok)");
