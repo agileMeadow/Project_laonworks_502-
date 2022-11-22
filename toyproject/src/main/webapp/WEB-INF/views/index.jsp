@@ -9,7 +9,7 @@
 <body>
 인덱스 페이지 입니다
 <script>
-	location.href="login";
+	location.href="loginForm";
 </script>
 </body>
 </html>

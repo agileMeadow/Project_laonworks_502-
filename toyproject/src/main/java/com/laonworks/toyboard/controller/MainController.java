@@ -3,20 +3,24 @@ package com.laonworks.toyboard.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.laonworks.toyboard.Model.Member;
-import com.laonworks.toyboard.Service.MainService;
+import com.laonworks.toyboard.model.Member;
+import com.laonworks.toyboard.service.MainService;
+import com.laonworks.toyboard.service.MainServiceImpl;
 
 @Controller
 
 public class MainController {
 	
 	@Autowired
+	@Qualifier("main")
 	private MainService ms;
+	
 	
 	@RequestMapping("/")
 	public String index() {

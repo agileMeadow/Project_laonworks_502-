@@ -32,11 +32,11 @@
 <form method="post" action="login" onsubmit="return login_check()">
 	<div>
 		<h5>이메일</h5>
-		<input type="text" id="email" name="member_email" size=20 value="이메일" required="required">
+		<input type="text" id="email" name="member_email" size=20 required="required">
 	</div>
 	<div>
 		<h5>비밀번호</h5>
-		<input type="password" id="password" name="member_pw" size=20 value="비밀번호" required="required">
+		<input type="password" id="password" name="member_pw" size=20 required="required">
 	</div>
 	<div>
 		<input type="submit" value="로그인" >
