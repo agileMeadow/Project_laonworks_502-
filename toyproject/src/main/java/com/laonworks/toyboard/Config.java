@@ -25,7 +25,7 @@ public class Config {
 				);
 		
 		/* Alias 설정 */
-		factoryBean.setTypeAliasesPackage("com.laonworks.toyboard.model"); 
+		factoryBean.setTypeAliasesPackage("com.laonworks.toyboard.model");
 		return factoryBean.getObject();
 	}
 	
