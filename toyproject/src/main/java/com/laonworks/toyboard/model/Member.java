@@ -1,4 +1,4 @@
-package com.laonworks.toyboard.Model;
+package com.laonworks.toyboard.model;
 
 import org.apache.ibatis.type.Alias;
 
