@@ -26,8 +26,8 @@ public class MainController {
 		return "index";
 	}
 	
-
-	/*[비밀번호 찾기 폼]*/
+ 
+	/*[비밀번호 찾기 폼]* /
 	@RequestMapping("member_pw_find")
 	public String member_pw_find() {
 		System.out.println("컨트롤러 들어옴(member_pw_find)");
