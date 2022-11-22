@@ -1,6 +1,6 @@
 package com.laonworks.toyboard.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +10,8 @@ import lombok.Setter;
 public class PostBean {
 	private int post_num;
 	private String post_name;
-	private String member_email;
+	private String member_name;
 	private String post_content;
-	private Date post_date;
+	private Timestamp post_date;
 
 }
