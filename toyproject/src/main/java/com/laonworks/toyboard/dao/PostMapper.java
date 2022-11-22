@@ -13,6 +13,7 @@ public interface PostMapper {
 	public PostBean callOnePost(int post_num);
 	public void insertPost(@Param("post_name") String post_name, 
 			@Param("member_email") String member_email, 
+			@Param("member_name") String member_name, 
 			@Param("post_content") String post_content);
 	public void updatePost(@Param("post_name") String post_name,
 			@Param("post_content") String post_content);
