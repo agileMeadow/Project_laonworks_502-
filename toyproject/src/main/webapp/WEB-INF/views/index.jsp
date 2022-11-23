@@ -9,9 +9,8 @@
 <body>
 
 <script>
-	  location.href="main";
-	// location.href = "pwfind";
-	</script>
+	location.href="main";
+</script>
 
 </body>
 </html>
