@@ -39,7 +39,7 @@ public class MainController {
 	}
 	
 	/*[비번 찾기 메일 보내기] */
-	@RequestMapping("pwfind_ok")
+/*	@RequestMapping("pwfind_ok")
 	public String member_pw_find_ok(@ModelAttribute Member mem,
 									HttpServletResponse response,
 									Model model)throws Exception {
@@ -91,8 +91,8 @@ public class MainController {
 			}
 			model.addAttribute("pwdok", "등록된 email을 확인 하세요.");
 			return "pwfind";
-		}	
+		}	*/
 			
-	}
+	// }
 }
 
