@@ -64,12 +64,13 @@ public class PostController {
 
 		ps.insertPost(post);
 
-		return "post_list.do";
+		return "postlist";
 	}
 	
 	//게시글 목록
 	@RequestMapping("/postlist")
-	public String postlist(@RequestParam(value="page", required = false, defaultValue="1") Integer page, Model model, HttpSession session) throws Exception {
+	public String postList(@RequestParam(value="page", required = false, defaultValue="1") Integer page, Model model, HttpSession session) throws Exception {
+		
 		// 세션 불러오기
 		MemberBean user_info = new MemberBean();
 		user_info = (MemberBean)session.getAttribute("MemberBean");
@@ -83,12 +84,34 @@ public class PostController {
 		
 		List<PostBean> postlist = new ArrayList<PostBean>();
 
-		
+		model.addAttribute("totalpost", totalpost);
 		model.addAttribute("postlist", postlist);
 		model.addAttribute("pg", pg);
 	
 		return "postlist";
 	}
+	
+	//게시글 상세페이지 
+	@RequestMapping("/postcont")
+	public String postCont(@RequestParam("post_num") int post_num,
+			@RequestParam("page") String page,
+			@RequestParam("state") String state, 
+			Model model) throws Exception {
+
+		PostBean pcont = ps.callOnePost(post_num);
+
+		model.addAttribute("pcont", pcont);
+		model.addAttribute("page", page);
+
+		if (state.equals("cont")) {// 내용보기일때
+			return "postcont";// 내용보기 페이지 설정
+		} else if (state.equals("edit")) {// 수정폼
+			return "postedit";
+		} else if (state.equals("del")) {// 삭제폼
+			return "postdelete";
+		} return null;
+	}
+
 	
 
 	// 글 수정 폼

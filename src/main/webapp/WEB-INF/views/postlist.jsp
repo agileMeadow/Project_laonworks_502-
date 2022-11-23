@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "./header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +15,7 @@
 
 		<!-- 목록 -->
 		<div class="card mb-4">
+		<h5>${totalpost} 개의 글이 당신을 기다리고 있어요 :) </h5>
 			<div class="card-header">
 				<a class="btn btn-primary float-end" href="register"> 
 					<i class="fas fa-edit"></i> 글 작성
@@ -34,7 +35,7 @@
 						<c:forEach items="${postlist}" var="p">
 							<tr>
 								<td>${p.post_num}</td>
-								<td><a href="postcont?post_num=${p.post_num} ">${p.post_name}</a></td>
+								<td><a href="<%=request.getContextPath()%>/postcont?post_num=${p.post_num} ">${p.post_name}</a></td>
 								<td>${p.member_name}</td>
 								<td>${p.post_date}</td>
 							</tr>
@@ -48,7 +49,29 @@
 	
 	
 	<!-- 페이징 -->
-	
+	<nav class="center" aria-label="Page navigation example">
+							<ul class="pagination">
+								<c:if test="${pg.page > 1 }">
+									<li class="page-item"><a class="page-link"
+										href="<%=request.getContextPath()%>/postlist.do?page=${pg.page-1}">Prev</a></li>
+								</c:if>
+								<c:forEach var="a" begin="${pg.startPage}" end="${pg.endPage}">
+									<c:if test="${a == pg.page }">
+										<li class="page-item active" aria-current="page"><a
+											class="page-link"
+											href="<%=request.getContextPath()%>/postlist.do?page=${a}">${a}</a></li>
+									</c:if>
+									<c:if test="${a != pg.page }">
+										<li class="page-item"><a class="page-link"
+											href="<%=request.getContextPath()%>/postlist.do?page=${a}">${a}</a></li>
+									</c:if>
+								</c:forEach>
+								<c:if test="${pg.page < totalpost}">
+									<li class="page-item"><a class="page-link"
+										href="<%=request.getContextPath()%>/postlist.do?page=${pg.page+1}">Next</a></li>
+								</c:if>
+							</ul>
+						</nav>
 	
 
 </body>
