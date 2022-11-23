@@ -31,6 +31,7 @@ public class PostController {
 		return "post/postmain";
 	}
 
+	
 	// 글 상세보기
 	
 	// 글 작성 폼
