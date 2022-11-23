@@ -22,7 +22,7 @@ public class InsertController {
 	public String test() {
 
 		return "memberinsert";
-	}   
+	}    
 
 	// 회원가입
 	@RequestMapping("memberinsert_ok")
