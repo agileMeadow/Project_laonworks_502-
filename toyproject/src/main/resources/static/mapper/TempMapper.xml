@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="peer.dao.*">
+<mapper namespace="com.laonworks.toyboard.dao.MainMapper">
 
+	<!--[비번 찾기) 메일 보내기]-->
+	<select id="pwfind" resultType="member" parameterType="member">
+		select * from member where member_email = #{member_email} and member_name = #{member_name}
+	</select>
+	
 
 </mapper>

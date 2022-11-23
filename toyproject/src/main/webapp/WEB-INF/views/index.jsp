@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-인덱스 페이지 입니다
+	<script>
+		location.href = "pwfind";
+	</script>
+
 </body>
 </html>
