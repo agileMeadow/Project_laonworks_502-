@@ -13,6 +13,5 @@
 <input type="button" value="로그인 페이지" onclick="location='loginForm'">
 <input type="button" value="글 목록" onclick="location='post_list.do'">
 
-
 </body>
 </html>
