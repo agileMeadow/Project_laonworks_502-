@@ -8,33 +8,33 @@ import org.springframework.stereotype.Service;
 import com.laonworks.toyboard.dao.PostMapper;
 import com.laonworks.toyboard.model.PostBean;
 
-@Service
+@Service("post")
 public class PostServiceImpl implements PostService {
 	@Autowired
 	public PostMapper pm;
 
 	@Override
-	public List<PostBean> callAllPost(int startPage, int endPage) {
+	public List<PostBean> callAllPost(int startPage, int endPage) throws Exception {
 		return pm.callAllPost(startPage, endPage);
 	}
 
 	@Override
-	public PostBean callOnePost(int post_num) {
+	public PostBean callOnePost(int post_num) throws Exception {
 		return pm.callOnePost(post_num);
 	}
 
 	@Override
-	public void insertPost(String post_name, String member_email, String member_name, String post_content) {
-		pm.insertPost(post_name, member_email, member_name, post_content);
+	public void insertPost(PostBean post) throws Exception {
+		pm.insertPost(post);
 	}
 
 	@Override
-	public void updatePost(String post_name, String post_content) {
-		pm.updatePost(post_name, post_content);
+	public void updatePost(PostBean post) throws Exception {
+		pm.updatePost(post);
 	}
 
 	@Override
-	public void deletePost(int post_num) {
+	public void deletePost(int post_num) throws Exception {
 		pm.deletePost(post_num);
 	}
 

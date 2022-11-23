@@ -19,13 +19,13 @@
 	</select>		
 
 	<!-- 글 작성 -->
-	<insert id="insertPost">
+	<insert id="insertPost" parameterType="com.laonworks.toyboard.model.PostBean">
 		insert into post(post_name, member_email, member_name, post_content, post_date) 
 			values(#{post_name}, #{member_email}, #{member_name}, #{post_content}, now())
 	</insert>
 	
 	<!-- 글 수정 -->
-	<update id="updatePost">
+	<update id="updatePost" parameterType="com.laonworks.toyboard.model.PostBean">
 		update into post set(post_name = #{post_name}, post_content = #{post_content}) where post_num = #{post_num}
 	</update>
 	
