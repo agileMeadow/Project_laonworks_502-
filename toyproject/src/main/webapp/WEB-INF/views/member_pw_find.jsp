@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>비밀번호 찾기 폼</title>
 
-<%--[외부 파일] --%>
+<%--[외부 파일 ] --%>
 <%-- <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/member_deco_pwd_find.css">	 --%>
 
@@ -52,7 +52,7 @@
 				    		onclick="$('#member_email').focus();"/>
 			    </div>
 			    <div id="pwd_find_close">
-			   		 <input type="button" value="닫기                                                                           →" class="passwd_close_btn1"
+			   		 <input type="button" value="닫기" class="passwd_close_btn1"
 			   					 onclick="self.close();" />
 			    </div>
 		  </form>
