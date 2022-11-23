@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.laonworks.toyboard.dao.MainMapper;
 import com.laonworks.toyboard.model.Member;
 
-@Service
+@Service("main")
 public class MainServiceImpl implements MainService {
 
 	@Autowired
@@ -14,7 +14,7 @@ public class MainServiceImpl implements MainService {
 
 	/*[비번 찾기 메일 보내기]*/
 	@Override
-	public Member findpw(Member mem) throws Exception {
-		return md.findpw(mem);
+	public Member pwfind(Member mem) throws Exception {
+		return md.pwfind(mem);
 	}
 }

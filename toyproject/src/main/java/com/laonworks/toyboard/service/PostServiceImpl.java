@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.laonworks.toyboard.dao.PostMapper;
 import com.laonworks.toyboard.model.PostBean;
 
-@Service
+@Service("post")
 public class PostServiceImpl implements PostService {
 	@Autowired
 	public PostMapper pm;

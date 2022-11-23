@@ -9,8 +9,8 @@
 <title>비밀번호 찾기 폼</title>
 
 <%--[외부 파일 ] --%>
-<%-- <link rel="stylesheet"
-	href="<%=request.getContextPath() %>/member_deco_pwd_find.css">	 --%>
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/css/decopwfind.css">
 
 <script>
 	function check() {
@@ -35,7 +35,7 @@
 <c:if test="${empty pwdok}"> 
 	<div class="case1">
 		  <h2 class="pwd_title">비밀 번호 찾기</h2>
-		 	 <form method="post" action="member_pwd_find_ok.do" onsubmit="return check()">  
+		 	 <form method="post" action="pwfind_ok" onsubmit="return check()">  
 		   		<table id="member_pwd_find_t">
 		    	<div class="id_find_part">
 		     		<dt>이메일 주소</dt>

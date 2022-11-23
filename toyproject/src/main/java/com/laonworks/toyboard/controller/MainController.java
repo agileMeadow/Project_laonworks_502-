@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +20,7 @@ import com.laonworks.toyboard.service.MainServiceImpl;
 public class MainController {
 	
 	@Autowired
+	@Qualifier("main")
 	private MainService ms;
 	
 	@RequestMapping("/")
@@ -28,30 +30,28 @@ public class MainController {
 	
  
 	/*[비밀번호 찾기 폼]*/
-	@RequestMapping("member_pw_find")
+	@RequestMapping("pwfind")
 	public String member_pw_find() {
-		System.out.println("컨트롤러 들어옴(member_pw_find)");
+		System.out.println("컨트롤러 들어옴(pwfind)");
 		
-		return "member_pw_findform";
+		return "pwfind";
 	}
 	
 	/*[비번 찾기 메일 보내기] */
-	@RequestMapping("member_pw_find_ok")
+	@RequestMapping("pwfind_ok")
 	public String member_pw_find_ok(@ModelAttribute Member mem,
-									Member mmember,
 									HttpServletResponse response,
 									Model model)throws Exception {
-		System.out.println("컨트롤러 들어옴(member_pw_find_ok)");
+		System.out.println("컨트롤러 들어옴(pwfind_ok)");
 		
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter(); 
 		
-		Member member = ms.findpw(mem); //[findpw()메소드 : 비번 찾기 메소드]
+		Member member = ms.pwfind(mem); //[pwfind()메소드 : 비번 찾기 메소드]
 		
 		//값이 없는 경우
 		if(member == null) {
 			
-			return "member_pwd_result";
+			return "pwresult";
 			
 			//메일 전송	
 			}else {
@@ -89,7 +89,7 @@ public class MainController {
 					System.out.println(e);	
 			}
 			model.addAttribute("pwdok", "등록된 email을 확인 하세요.");
-			return "member_pwd_find";
+			return "pwfind";
 		}	
 			
 	}
