@@ -1,5 +1,7 @@
 package com.laonworks.toyboard.service;
 
+import org.springframework.context.annotation.Primary;
+
 import com.laonworks.toyboard.model.Member;
 
 public interface MainService {

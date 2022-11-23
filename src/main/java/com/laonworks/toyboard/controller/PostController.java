@@ -1,5 +1,8 @@
 package com.laonworks.toyboard.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +10,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.laonworks.toyboard.model.Member;
+import com.laonworks.toyboard.model.MemberBean;
+import com.laonworks.toyboard.model.Pagination;
 import com.laonworks.toyboard.model.PostBean;
 import com.laonworks.toyboard.service.MainService;
 import com.laonworks.toyboard.service.PostService;
@@ -60,6 +66,30 @@ public class PostController {
 
 		return "post_list.do";
 	}
+	
+	//게시글 목록
+	@RequestMapping("/postlist")
+	public String postlist(@RequestParam(value="page", required = false, defaultValue="1") Integer page, Model model, HttpSession session) throws Exception {
+		// 세션 불러오기
+		MemberBean user_info = new MemberBean();
+		user_info = (MemberBean)session.getAttribute("MemberBean");
+
+		// 전체 글 수 
+		int totalpost = ps.getTotalPost();
+			
+		Pagination pg = new Pagination(page, totalpost);
+		//int sp = pg.getStartPost();
+		//int ep = pg.getEndPost();
+		
+		List<PostBean> postlist = new ArrayList<PostBean>();
+
+		
+		model.addAttribute("postlist", postlist);
+		model.addAttribute("pg", pg);
+	
+		return "postlist";
+	}
+	
 
 	// 글 수정 폼
 	@RequestMapping("/postedit")

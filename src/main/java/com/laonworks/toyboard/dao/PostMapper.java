@@ -8,7 +8,8 @@ import com.laonworks.toyboard.model.PostBean;
 
 @Mapper
 public interface PostMapper {
-	public List<PostBean> callAllPost(int startPage, int endPage) throws Exception;
+	public int getTotalPost() throws Exception;
+	public List<PostBean> callAllPost(int startPage) throws Exception;
 	public PostBean callOnePost(int post_num) throws Exception;
 	public void insertPost(PostBean post) throws Exception;
 	public void updatePost(PostBean post) throws Exception;

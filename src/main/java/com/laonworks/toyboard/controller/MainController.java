@@ -21,7 +21,7 @@ import com.laonworks.toyboard.service.MainServiceImpl;
 public class MainController {
 	
 	@Autowired
-//	@Qualifier("main")
+	@Qualifier("main")
 	private MainService ms;
 	
 	@RequestMapping("/")

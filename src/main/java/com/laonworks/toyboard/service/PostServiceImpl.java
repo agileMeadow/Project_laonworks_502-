@@ -14,10 +14,16 @@ import com.laonworks.toyboard.model.PostBean;
 public class PostServiceImpl implements PostService {
 	@Autowired
 	public PostMapper pm;
+	
+	// 총 글 갯수 
+	@Override
+	public int getTotalPost() throws Exception{
+		return pm.getTotalPost();
+	}
  
 	@Override
-	public List<PostBean> callAllPost(int startPage, int endPage) throws Exception {
-		return pm.callAllPost(startPage, endPage);
+	public List<PostBean> callAllPost(int startPage) throws Exception {
+		return pm.callAllPost(startPage);
 	}
 
 	@Override
