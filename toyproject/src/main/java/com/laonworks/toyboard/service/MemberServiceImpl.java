@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.laonworks.toyboard.dao.MemberDao;
 import com.laonworks.toyboard.model.MemberBean;
 
+
 @Service("member")
 public class MemberServiceImpl implements MemberService {
 	

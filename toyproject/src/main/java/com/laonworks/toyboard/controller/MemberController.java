@@ -1,28 +1,34 @@
 package com.laonworks.toyboard.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.laonworks.toyboard.model.Member;
-import com.laonworks.toyboard.service.MainService;
+import com.laonworks.toyboard.model.MemberBean;
+import com.laonworks.toyboard.service.MemberServiceImpl;
 
 @Controller
-
 public class MemberController {
-	
+  
 	@Autowired
-	@Qualifier("main")
-	private MainService ms;
-	
-	// 로그인 폼 이동
-	@RequestMapping("loginForm")
-	public String loginForm() {
-		return "loginForm";
+	private MemberServiceImpl memberService;
+
+	@RequestMapping("insert")
+	public String test() {
+
+		return "memberinsert";
+	}   
+
+	// 회원가입
+	@RequestMapping("memberinsert_ok")
+	public String memberinsert_ok(MemberBean mb) throws Exception {
+
+		memberService.insertmember(mb);
+		System.out.println("member_insert_ok");
+		return "#"; // 가입 후 로그인페이지로 이동
 	}
 	  
 	// 로그인
@@ -31,41 +37,24 @@ public class MemberController {
 						Model model, HttpSession session) {
 		
 		System.out.println("login in");
+
+  
+	// 이메일 중복체크 
+	@PostMapping("/emailcheck")  
+	@ResponseBody 
+	public int emailcheck(@RequestParam("member_email") String member_email) throws Exception {
+
 		
-		int result = 0;
-		
-		Member m = ms.getMember(member_email);
-		
-		if(m == null){	// 회원이 아닌 경우
-			result = 1;
-			model.addAttribute("result", result);
-		}else {			// 회원
-			if(m.getMember_pw().equals(member_pw)) {
-				session.setAttribute("member_email", member_email);
-				
-				return "main";	// 메인 페이지로 이동
-			}else {
-				result = 2;
-				model.addAttribute("result", result);
-			}
+		int cnt = memberService.emailcheck(member_email);
+
+		if(cnt == 0) { // 사용 가능
+			System.out.println("ok_email");
+		}else {			// 중복, 사용 불가능
+			System.out.println("already_email");
 		}
 		
-		return "loginResult";
-	}
-	
-	// 로그아웃
-	@RequestMapping("logout")
-	public String member_logout(HttpSession session) {	
-		
-		session.invalidate();
-		
-		return "main";
-	}
-	
-//	// 메인 페이지로 이동
-	@RequestMapping("main")
-	public String main() {
-		return "main";
+		System.out.println("emailcheck");
+		return cnt;
 	}
 
 }
