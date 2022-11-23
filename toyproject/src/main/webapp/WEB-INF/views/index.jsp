@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
+
+<script>
+	 // location.href="main";
 		location.href = "pwfind";
 	</script>
 
