@@ -53,7 +53,7 @@
     				 -<input name="member_phone3" id="member_phone3" size="4" maxlength="4" class="input_box" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><input type="submit" class="btn btn-info" value="가입">
+					<td colspan="3"><input type="submit" class="btn btn-primary" value="가입">
 									<button type="reset" class="btn btn-secondary">다시 작성</button></td>
 				</tr>
 			</table>
