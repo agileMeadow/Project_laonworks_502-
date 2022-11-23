@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.laonworks.toyboard.dao.PostMapper">
+
+	<!-- 글 리스트 전체 불러오기 -->
+	<select id="callAllPost" resultType="com.laonworks.toyboard.model.PostBean">
+		<![CDATA[ 
+		select * from (select rownum as rnum, board.* from 
+			(select * from post order by post_num desc) board)
+		where rnum <= #{startPage} and rnum >= #{endPage}
+		]]>
+	</select>		
+
+	<!-- 글 상세 보기 -->
+	<select id="callOnePost" resultType="com.laonworks.toyboard.model.PostBean">
+		select * from post where post_num = #{post_num}
+		
+	</select>		
+
+	<!-- 글 작성 -->
+	<insert id="insertPost" parameterType="com.laonworks.toyboard.model.PostBean">
+		insert into post(post_name, member_email, member_name, post_content, post_date) 
+			values(#{post_name}, #{member_email}, #{member_name}, #{post_content}, now())
+	</insert>
+	
+	<!-- 글 수정 -->
+	<update id="updatePost" parameterType="com.laonworks.toyboard.model.PostBean">
+		update into post set(post_name = #{post_name}, post_content = #{post_content}) where post_num = #{post_num}
+	</update>
+	
+	<!-- 글 삭제 -->
+	<delete id="deletePost">
+		delete from post where post_num = #{post_num}
+	</delete>
+	
+</mapper>
