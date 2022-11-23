@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.laonworks.toyboard.model.PostBean;
@@ -35,7 +36,8 @@ public class PostController {
 		// 세션 호출
 		String client_email = session.getAttribute("member_email");
 		
-		MemberBean client_info = ms.findpw (client_email);
+		// 이메일로 정보 호출
+		MemberBean client_info = ms. (client_email);
 		System.out.println(client_info);
 		
 		post.setMember_email(client_email);
@@ -48,11 +50,34 @@ public class PostController {
 		return "";
 	}
 	
+	// 글 수정 폼
+	@RequestMapping("/postedit")
+	public String postEdit(int post_num,Model model, HttpSession session)  throws Exception {
+		
+		PostBean post = ps.callOnePost(post_num);
+		String returnpage = "";
+		
+		// 세션 호출
+		String client_email = session.getAttribute("member_email");
+		
+		if (client_email.equals(post.getMember_email())) {
+			
+			model.addAttribute("post", post);
+			
+			returnpage = "";
+		}else {
+			returnpage = "";
+		}
+		
+		return returnpage;
+	}
+	
 	// 글 수정
 	@RequestMapping("/postrevise")
 	public String postRevise(int post_num, String post_name, String post_content, HttpSession session)  throws Exception {
 		
 		PostBean post = ps.callOnePost(post_num);
+		String returnpage = "";
 		
 		// 세션 호출
 		String client_email = session.getAttribute("member_email");
@@ -63,11 +88,13 @@ public class PostController {
 			post.setPost_content(post_content);
 			
 			ps.updatePost(post);
+
+			returnpage ="";
 		}else {
-			
+			returnpage ="";
 		}
 		
-		return "";
+		return returnpage;
 	}
 	
 	// 글 삭제
@@ -75,17 +102,20 @@ public class PostController {
 	public String postDelete(int post_num, HttpSession session) throws Exception {
 		
 		PostBean post = ps.callOnePost(post_num);
+		String returnpage = "";
 		
 		// 세션 호출
 		String client_email = session.getAttribute("member_email");
 		
 		if (client_email.equals(post.getMember_email())) {
 			ps.deletePost(post_num);
+
+			returnpage = "";
 		}else {
-			
+			returnpage = "";
 		}
 		
-		return "";
+		return returnpage;
 	}
 	
 	
