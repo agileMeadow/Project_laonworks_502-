@@ -6,18 +6,18 @@ import com.laonworks.toyboard.model.PostBean;
 
 public interface PostService {
 	// 글 리스트 호출
-	public List<PostBean> callAllPost(int startPage, int endPage);
+	public List<PostBean> callAllPost(int startPage, int endPage) throws Exception;
 
 	// 글 상세보기
-	public PostBean callOnePost(int post_num);
+	public PostBean callOnePost(int post_num) throws Exception;
 	
 	// 글 작성
-	public void insertPost(String post_name, String member_email, String member_name, String post_content);
+	public void insertPost(PostBean post) throws Exception;
 	
 	// 글 수정
-	public void updatePost(String post_name, String post_content);
+	public void updatePost(PostBean post) throws Exception;
 	
 	// 글 삭제
-	public void deletePost(int post_num);
+	public void deletePost(int post_num) throws Exception;
 
 }
