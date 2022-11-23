@@ -76,6 +76,7 @@ public class MemberEditController {
 			return "member_edit/deleteResult";
 		}else {												// 비번 다를 때
 			
+			
 			MemberEditBean mdel  = new MemberEditBean();
 			mdel.setMember_email(email);
 			mdel.setMember_delete_yn(member_delete_yn);
