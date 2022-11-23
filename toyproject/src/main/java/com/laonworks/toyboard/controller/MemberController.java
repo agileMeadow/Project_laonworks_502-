@@ -30,11 +30,20 @@ public class MemberController {
 		System.out.println("member_insert_ok");
 		return "#"; // 가입 후 로그인페이지로 이동
 	}
+	  
+	// 로그인
+	@RequestMapping("login")
+	public String login(String member_email, String member_pw,
+						Model model, HttpSession session) {
+		
+		System.out.println("login in");
+
   
 	// 이메일 중복체크 
 	@PostMapping("/emailcheck")  
 	@ResponseBody 
 	public int emailcheck(@RequestParam("member_email") String member_email) throws Exception {
+
 		
 		int cnt = memberService.emailcheck(member_email);
 

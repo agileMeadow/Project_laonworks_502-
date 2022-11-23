@@ -23,7 +23,7 @@ public class InsertController {
 
 		return "memberinsert";
 	}    
-
+ 
 	// 회원가입
 	@RequestMapping("memberinsert_ok")
 	public String memberinsert_ok(MemberBean mb) throws Exception {
