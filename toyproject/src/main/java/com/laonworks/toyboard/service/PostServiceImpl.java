@@ -3,6 +3,7 @@ package com.laonworks.toyboard.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.laonworks.toyboard.dao.PostMapper;
@@ -12,7 +13,7 @@ import com.laonworks.toyboard.model.PostBean;
 public class PostServiceImpl implements PostService {
 	@Autowired
 	public PostMapper pm;
-
+ 
 	@Override
 	public List<PostBean> callAllPost(int startPage, int endPage) {
 		return pm.callAllPost(startPage, endPage);

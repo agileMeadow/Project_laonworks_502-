@@ -7,9 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Alias("member")
+@Alias("Member")
 public class Member {
-	
 	private String member_email;
 	private String member_name;
 	private String member_pw;
