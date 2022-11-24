@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.laonworks.toyboard.model.Member;
 
 @Repository
-@Primary
+//@Primary
 public class MainDaoImpl implements MainDao{
 
 	@Autowired

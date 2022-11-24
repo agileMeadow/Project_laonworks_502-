@@ -69,7 +69,7 @@ public class PostController {
 	
 	//게시글 목록
 	@RequestMapping("/postlist")
-	public String postList(@RequestParam(value="page", required = false, defaultValue="1") Integer page, Model model, HttpSession session) throws Exception {
+	public String postList(@RequestParam(value="page", required = false, defaultValue="1") Integer page, Model model, HttpSession session, Pagination pagination) throws Exception {
 		
 		// 세션 불러오기
 		MemberBean user_info = new MemberBean();
@@ -81,12 +81,13 @@ public class PostController {
 		Pagination pg = new Pagination(page, totalpost);
 		//int sp = pg.getStartPost();
 		//int ep = pg.getEndPost();
+		//pg.getPageLimit();
 		
 		List<PostBean> postlist = new ArrayList<PostBean>();
 
 		model.addAttribute("totalpost", totalpost);
 		model.addAttribute("postlist", postlist);
-		model.addAttribute("pg", pg);
+		//model.addAttribute("pg", pg);
 	
 		return "postlist";
 	}
